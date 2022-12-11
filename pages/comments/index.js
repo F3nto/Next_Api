@@ -30,6 +30,21 @@ const CommentPage = () => {
         
     }
 
+    const deleteComment = async(commentId) => {
+
+        const response = await fetch(`/api/comments/${commentId}`, {
+
+        method : 'DELETE'
+        })
+
+        const data = response.json()
+
+        console.log(data)
+
+        fetchComments()
+
+    }
+
 return(
 
     <>
@@ -44,14 +59,16 @@ return(
     <button onClick={fetchComments}>Loading comments.....</button>
     
     {
-        comments.map(subcomments => {
+        comments.map(com => {
 
             return(
 
-                <div key = {subcomments.id}>
+                <div key = {com.id}>
 
-                    {subcomments.id} {subcomments.text}
+                    {com.id} {com.text}
                     
+
+                    <button onClick={() => {deleteComment(com.id)}}>Delete</button>
 
                 </div>
 
