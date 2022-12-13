@@ -18,7 +18,7 @@ const CommentPage = () => {
 
         const response = await fetch(`/api/comments`, {
             
-            method : 'POST',
+            method : "POST",
             body : JSON.stringify({comments}),
             headers : {'Content-Type' : 'application/json'},
 
@@ -34,10 +34,10 @@ const CommentPage = () => {
 
         const response = await fetch(`/api/comments/${commentId}`, {
 
-        method : 'DELETE'
+        method : "DELETE",
         })
 
-        const data = response.json()
+        const data = await response.json()
 
         console.log(data)
 
@@ -68,7 +68,7 @@ return(
                     {com.id} {com.text}
                     
 
-                    <button onClick={() => {deleteComment(com.id)}}>Delete</button>
+                    <button onClick={deleteComment(com.id)}>Delete</button>
 
                 </div>
 

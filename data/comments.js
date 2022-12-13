@@ -1,4 +1,4 @@
-export let comments = [
+export const comments = [
 
     {
         id : 1,
@@ -31,3 +31,4 @@ export let comments = [
     },
 
 ]
+
